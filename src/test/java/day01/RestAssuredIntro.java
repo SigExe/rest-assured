@@ -1,5 +1,6 @@
 package day01;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,31 @@ public class RestAssuredIntro {
         System.out.println(response.getHeader("Content-type"));
         System.out.println(response.getContentType());
         System.out.println(response.contentType());
+
+        assertThat(response.contentType(), is("text/plain;charset=UTF-8"));
+        assertThat(response.contentType(), startsWith("text"));
+
+        assertThat(response.contentType(), startsWith(ContentType.TEXT.toString()));
+    }
+
+    @DisplayName("Comman Matchers for String")
+    @Test
+    public void testString(){
+
+        String str = "Rest Assured is cool so far";
+
+        assertThat(str, is("Rest Assured is cool so far"));
+
+        assertThat(str, equalToIgnoringCase("Rest ASSURED is cool so far"));
+
+        assertThat(str, startsWith("Rest"));
+
+        assertThat(str, endsWith("so far"));
+
+        assertThat(str, containsString("is cool"));
+
+        assertThat(str, containsStringIgnoringCase("IS COOL"));
+
     }
 
 }
