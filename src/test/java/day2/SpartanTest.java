@@ -3,9 +3,7 @@ package day2;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.hamcrest.Matchers.* ;
 import static io.restassured.RestAssured.* ;
@@ -18,8 +16,17 @@ public class SpartanTest {
     @BeforeAll
     public static void setUp(){
 
-        RestAssured.baseURI = "http://35.153.193.51:8000";
+        // RestAssured.baseURI = "http://35.153.193.51:8000";
+        baseURI = "http://35.153.193.51:8000";
+        // RestAssured.basePath = "/api";
         basePath = "/api";
+
+    }
+
+    @AfterAll
+    public static void tearDown(){
+
+        RestAssured.reset();
 
     }
 
