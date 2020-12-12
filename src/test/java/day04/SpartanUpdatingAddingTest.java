@@ -12,7 +12,7 @@ public class SpartanUpdatingAddingTest {
     @BeforeAll
     public static void setUp(){
 
-        baseURI = "http://35.153.193.51:8000";
+        baseURI = "http://54.90.101.103:8000";
         basePath = "/api";
 
     }
@@ -24,8 +24,18 @@ public class SpartanUpdatingAddingTest {
 
     }
 
-    @DisplayName("Adding One Data")
+    @DisplayName("Testing GET /api/spartans with Basic Auth")
     @Test
-    public void
+    public void testAllSpartansWithBasicAuth(){
+
+        given()
+                .auth().basic("admin", "admin").
+        when()
+                .get("/spartans").
+        then()
+                .log().all()
+                .statusCode(is(200));
+
+    }
 
 }
