@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class SpartanUpdatingAddingTest {
+public class SpartanAddingTest {
 
     @BeforeAll
     public static void setUp(){
