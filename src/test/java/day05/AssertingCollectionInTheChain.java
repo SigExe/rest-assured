@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import utility.ConfigurationReader;
+
 import java.util.List;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -14,7 +16,7 @@ public class AssertingCollectionInTheChain {
 
     @BeforeAll
     public static void setUp(){
-        baseURI = "http://54.90.101.103:8000";
+        baseURI = ConfigurationReader.getProperty("spartan.base_uri");
         basePath = "/api" ;
     }
     @AfterAll
