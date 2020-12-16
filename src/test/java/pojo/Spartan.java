@@ -42,5 +42,14 @@ public class Spartan {
         this.phone = phone;
     }
 
+    @Override
+    public String toString() {
+        return "Spartan{" +
+                "name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phone=" + phone +
+                '}';
+    }
+
 
 }
