@@ -27,7 +27,7 @@ public class PostWithCustomObject {
     @Test
     public void testDataWithPOJO(){
 
-        Spartan sp1 = new Spartan("B20", "Male", 1234567890L);
+        Spartan sp1 = SpartanUtil.getRandomSpartanPOJO_Payload();
         System.out.println(sp1);
 
         given()
@@ -40,7 +40,11 @@ public class PostWithCustomObject {
         then()
                 .log().all()
                 .assertThat()
-                .statusCode( is(201));
+                .statusCode( is(201))
+                .body("success",is("A Spartan is Born!"))
+                .body("data.name",is(sp1.getName()))
+                .body("data.gender",is(sp1.getGender()))
+                .body("data.phone",is(sp1.getPhone()));
 
     }
 
