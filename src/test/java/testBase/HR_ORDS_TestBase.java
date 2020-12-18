@@ -2,6 +2,7 @@ package testBase;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import utility.ConfigurationReader;
 
 import static io.restassured.RestAssured.*;
 
@@ -9,8 +10,8 @@ public abstract class HR_ORDS_TestBase {
 
     @BeforeAll
     public static void setUp(){
-        baseURI = "http://54.90.101.103:1000";
-        basePath = "/ords/hr" ;
+        baseURI = ConfigurationReader.getProperty("ords.baseURL");
+        basePath = ConfigurationReader.getProperty("ords.basePath") ;
     }
 
     @AfterAll
