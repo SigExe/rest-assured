@@ -1,5 +1,6 @@
 package day10;
 
+import io.restassured.RestAssured;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
@@ -42,6 +43,11 @@ public class SpartanWithReusableSpecForAdminRoleTest {
                 .contentType(ContentType.JSON)
                 .body(randomSpartanPayload);
 
+    }
+
+    @AfterAll
+    public static void tearDown(){
+        RestAssured.reset();
     }
 
     @DisplayName("GET /api/spartans/{id} Endpoint Test")
